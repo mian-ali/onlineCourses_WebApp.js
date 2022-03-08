@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="onlinecourse.css">
+    <title>Online-Course</title>
+</head>
+<body>
+    <nav>
+        <img src="img/logo.jpg" alt="">
+
+        <div class="cart-div">
+            <div class="showcart"></div>
+
+            <img src="img/cart.png" alt="">
+            
+            <div class="table-div">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                  
+                </table>
+                <button class="clearbtn">Clear Cart</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="hero">
+
+        <h1>learn somthing today</h1>
+
+        <p>Spacial Offer, any course $15</p>
+
+        <input type="text" placeholder="What Do You Want To Learn?">
+        <img src="img/mglass.png" alt="">
+
+        <div class="bottom">
+            
+            <div class="b1">
+                <img src="img/icon1.png" alt="">
+                <p>20,000 online courses <br>Learn new skills</p>
+            </div>
+
+            <div class="b1">
+                <img src="img/icon2.png" alt="">
+                <p> Expert Instructors <br>
+                    Learn width different styles
+                </p>
+            </div>
+
+            <div class="b1">
+                <img src="img/icon3.png" alt="">
+                <p> 
+                    Life time access <br>
+                    learn att your own pace
+                </p>         
+            </div>
+        </div>
+
+    </div>
+
+    <section>
+        <h1>online courses</h1>
+
+        <div class="cart1">
+
+            <div class="cart1-1">
+                <img src="img/course1.jpg" class="img1">
+
+                <h2>HTML5, CSS3,JavaScript for 
+                    <br>beginners 
+                </h2>
+
+                <p>Juan Pedro</p>
+
+                <img src="img/stars.png" class="starimg">
+
+                <h3><del> $200</del>
+                    <span>$15</span>
+                </h3>
+                <button class="btn1">add to cart</button>
+            </div>
+
+            <div class="cart1-1 cart1-2">
+                <img src="img/course2.jpg" class="img1">
+
+                <h2>Cooking Course </h2>
+
+                <p>Juan Pedro</p>
+
+                <img src="img/stars.png" class="starimg">
+
+                <h3><del> $200</del>
+                    <span>$15</span>
+                </h3>
+                <button class="btn1">add to cart</button>
+
+            </div>
+
+            <div class="cart1-1 cart1-3">
+                <img src="img/course3.jpg" class="img1">
+
+                <h2>Guitar for beginners
+                </h2>
+
+                <p>Juan Pedro</p>
+
+                <img src="img/stars.png" class="starimg">
+
+                <h3><del> $200</del>
+                    <span>$15</span>
+                </h3>
+                <button class="btn1">add to cart</button>
+            </div>
+ 
+
+        </div>
+
+
+
+
+        <div class="cart1 cart2">
+
+            <div class="cart1-1">
+                <img src="img/course4.jpg" class="img1">
+
+                <h2> Orchard at home </h2>
+
+                <p>Juan Pedro</p>
+
+                <img src="img/stars.png" class="starimg">
+
+                <h3><del> $200</del>
+                    <span>$15</span>
+                </h3>
+                <button class="btn1">add to cart</button>
+            </div>
+
+            <div class="cart1-1 cart1-2">
+                <img src="img/course5.jpg" class="img1">
+
+                <h2>Cooking Course </h2>
+
+                <p>Juan Pedro</p>
+
+                <img src="img/stars.png" class="starimg">
+
+                <h3><del> $200</del>
+                    <span>$15</span>
+                </h3>
+                <button class="btn1">add to cart</button>
+
+            </div>
+
+            <div class="cart1-1 cart1-3">
+                <img src="img/course1.jpg" class="img1">
+
+                <h2>Guitar for beginners
+                </h2>
+
+                <p>Juan Pedro</p>
+
+                <img src="img/stars.png" class="starimg">
+
+                <h3><del> $200</del>
+                    <span>$15</span>
+                </h3>
+                <button class="btn1">add to cart</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <ul class="ul1">
+            <li><a href="#"> For Business </a></li>
+            <li><a href="#"> Become an Instructor</a></li>
+            <li><a href="#"> Mobile Application</a></li>
+            <li><a href="#"> Support</a></li>
+            <li><a href="#"> Help</a></li>
+        </ul>
+
+        <ul class="ul1 ul2">
+            <li><a href="#"> About Us</a></li>
+            <li><a href="#"> Work with us</a></li>
+            <li><a href="#"> Blog</a></li>
+            
+        </ul>
+    </footer>
+    
+    
+
+</body>
+
+<script>
+
+    //  var datalist = localStorage.getItem('datakey')?JSON.parse(localStorage.getItem('datakey')):[]
+    var datalist=[]
+    var tbody = document.querySelector('tbody')
+    var clearbtn = document.querySelector('.clearbtn');
+    var allbtn = document.querySelectorAll('.btn1');
+
+    var showcart = document.querySelector('.showcart')
+   
+
+
+           allbtn.forEach((btn)=>{
+               btn.addEventListener('click',(e)=>{
+                   var pdiv = e.target.parentElement
+                   getdata(pdiv)
+               })
+           })
+
+           function getdata(x){
+            //    console.log(x);
+               var image=x.querySelector("img").src
+               var hd=x.querySelector("h2").textContent;
+               var pr=x.querySelector("span").textContent;
+               let obj={image,hd,pr}
+
+
+               var datalist = localStorage.getItem('datakey')
+
+               if(datalist){
+           
+                    datalist = JSON.parse(datalist)
+                    datalist.push(obj);
+                    localStorage.setItem('datakey',JSON.stringify(datalist))
+                    
+                    render(obj)
+                }
+                else{
+                    localStorage.setItem('datakey',JSON.stringify([obj]))
+                    render(obj)
+
+                }
+                   
+            }
+            
+            function render(obj){
+                var datalist = localStorage.getItem('datakey')
+                if(datalist){
+                    datalist=JSON.parse(datalist)
+                  
+                    var itemHTML = "";
+                        datalist.forEach((ele,index) =>{
+                            itemHTML +=`<tr>
+                                            <td><img src="${ele.image}"></td>                                         
+                                            <td>${ele.hd}</td>
+                                            <td><b>${ele.pr}<b></td>
+                                            <td onclick="dltindex(${index})">
+                                                <a href="#" class="delete"> X </a>
+                                            </td>
+                                        </tr>`
+                        counter(index)
+                        })
+                        tbody.innerHTML = itemHTML
+                      
+                }
+            }
+            
+            render()
+
+           
+
+            function dltindex(index) {
+                
+                var data = localStorage.getItem('datakey')
+                if(data){
+                    data = JSON.parse(data)
+                    data.splice(index,1)
+                    localStorage.setItem('datakey',JSON.stringify(data))
+                    render()
+                }
+            }
+   
+
+            clearbtn.addEventListener('click',()=>{
+                var data = localStorage.getItem('datakey');
+                localStorage.removeItem('datakey');
+                tbody.innerHTML= "";
+            })
+
+
+            function counter(index){
+               showcart.innerHTML = index+1
+                
+            }
+
+</script>
+
+</html>
