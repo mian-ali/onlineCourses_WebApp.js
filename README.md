@@ -1,1 +1,1 @@
-# onlineCourses_WebApp.js
+# OnlineCourses WebApp.js
